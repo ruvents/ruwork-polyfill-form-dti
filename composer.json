@@ -1,0 +1,39 @@
+{
+    "name": "ruwork/polyfill-form-dti",
+    "description": "Polyfill / Form / DateTimeImmutable",
+    "type": "symfony-bundle",
+    "keywords": ["symfony", "form", "polyfill"],
+    "license": "MIT",
+    "authors": [
+        {"name": "Valentin Udaltsov", "email": "udaltsov.valentin@gmail.com"}
+    ],
+    "require": {
+        "php": ">=5.3.9",
+        "symfony/form": "^2.7 || ^3.0 || ^4.0"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^2.7 || ^3.0 || ^4.0"
+    },
+    "conflict": {
+        "symfony/form": ">=4.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ruwork\\PolyfillFormDTI\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "5.3.9"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}
