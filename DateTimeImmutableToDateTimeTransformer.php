@@ -53,6 +53,10 @@ final class DateTimeImmutableToDateTimeTransformer implements DataTransformerInt
             throw new TransformationFailedException('Expected a \DateTime.');
         }
 
-        return \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $value->format(\DateTime::RFC3339));
+        if (PHP_VERSION < 50600) {
+            return \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $value->format(\DateTime::RFC3339));
+        }
+
+        return \DateTimeImmutable::createFromMutable($value);
     }
 }
