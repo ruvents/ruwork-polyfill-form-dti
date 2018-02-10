@@ -3,7 +3,6 @@
 namespace Ruwork\PolyfillFormDTI\Tests\Extension;
 
 use Ruwork\PolyfillFormDTI\DTIExtension;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
