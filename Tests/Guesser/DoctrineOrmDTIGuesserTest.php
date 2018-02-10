@@ -17,7 +17,7 @@ class DoctrineOrmDTIGuesserTest extends TestCase
 {
     public function testGuessNulls()
     {
-        $guesser = new DoctrineOrmDTIGuesser($this->createMock(ManagerRegistry::class));
+        $guesser = new DoctrineOrmDTIGuesser($this->createRegistry());
 
         $this->assertNull($guesser->guessRequired('Class', 'property'));
         $this->assertNull($guesser->guessMaxLength('Class', 'property'));
@@ -79,7 +79,7 @@ class DoctrineOrmDTIGuesserTest extends TestCase
 
     private function createRegistry(ObjectManager $manager = null)
     {
-        $registry = $this->createMock(ManagerRegistry::class);
+        $registry = $this->getMockBuilder(ManagerRegistry::class)->getMock();
         $registry->method('getManagerForClass')->willReturn($manager);
 
         return $registry;
@@ -87,7 +87,7 @@ class DoctrineOrmDTIGuesserTest extends TestCase
 
     private function createManager(ClassMetadata $metadata = null)
     {
-        $manager = $this->createMock(ObjectManager::class);
+        $manager = $this->getMockBuilder(ObjectManager::class)->getMock();
         $manager->method('getClassMetadata')->willReturn($metadata);
 
         return $manager;
@@ -95,7 +95,7 @@ class DoctrineOrmDTIGuesserTest extends TestCase
 
     private function createMetadata($type = null, $hasField = true)
     {
-        $metadata = $this->createMock(ClassMetadata::class);
+        $metadata = $this->getMockBuilder(ClassMetadata::class)->getMock();
         $metadata->method('hasField')->willReturn($hasField);
         $metadata->method('getTypeOfField')->willReturn($type);
 
