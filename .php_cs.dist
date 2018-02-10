@@ -7,7 +7,6 @@ return PhpCsFixer\Config::create()
         '@PHPUnit48Migration:risky' => true,
         'php_unit_no_expectation_annotation' => false,
         'array_syntax' => ['syntax' => 'short'],
-        'protected_to_private' => false,
     ])
     ->setRiskyAllowed(true)
     ->setFinder(
