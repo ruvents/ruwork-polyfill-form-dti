@@ -11,10 +11,10 @@ final class DateTimeImmutableExtension extends AbstractExtension
      */
     protected function loadTypeExtensions()
     {
-        return array(
+        return [
             new DateTimeImmutableTypeExtension('Symfony\Component\Form\Extension\Core\Type\DateTimeType'),
             new DateTimeImmutableTypeExtension('Symfony\Component\Form\Extension\Core\Type\DateType'),
             new DateTimeImmutableTypeExtension('Symfony\Component\Form\Extension\Core\Type\TimeType'),
-        );
+        ];
     }
 }

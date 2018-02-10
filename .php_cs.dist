@@ -1,19 +1,19 @@
 <?php
 
 return PhpCsFixer\Config::create()
-    ->setRules(array(
+    ->setRules([
         '@Symfony' => true,
         '@Symfony:risky' => true,
         '@PHPUnit48Migration:risky' => true,
         'php_unit_no_expectation_annotation' => false,
-        'array_syntax' => array('syntax' => 'long'),
+        'array_syntax' => ['syntax' => 'short'],
         'protected_to_private' => false,
-    ))
+    ])
     ->setRiskyAllowed(true)
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->in(__DIR__)
-            ->exclude(array(
-                __DIR__.'/vendor'
-            ))
+            ->exclude([
+                __DIR__.'/vendor',
+            ])
     );

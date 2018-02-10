@@ -8,7 +8,7 @@
         {"name": "Valentin Udaltsov", "email": "udaltsov.valentin@gmail.com"}
     ],
     "require": {
-        "php": ">=5.3.9",
+        "php": ">=5.5",
         "symfony/form": "^2.7 || ^3.0 || ^4.0"
     },
     "require-dev": {
@@ -26,10 +26,7 @@
         ]
     },
     "config": {
-        "sort-packages": true,
-        "platform": {
-            "php": "5.3.9"
-        }
+        "sort-packages": true
     },
     "extra": {
         "branch-alias": {

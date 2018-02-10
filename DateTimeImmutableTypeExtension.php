@@ -30,7 +30,7 @@ final class DateTimeImmutableTypeExtension extends AbstractTypeExtension
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->addAllowedValues('input', array('datetime_immutable'));
+        $resolver->addAllowedValues('input', ['datetime_immutable']);
     }
 
     /**

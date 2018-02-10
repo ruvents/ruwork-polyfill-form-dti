@@ -9,26 +9,26 @@ class DateTimeTypeImtblDateExtensionTest extends TypeTestCase
 {
     public function testSubmitDateTimeImmutable()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\DateTimeType', null, array(
+        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\DateTimeType', null, [
             'model_timezone' => 'UTC',
             'view_timezone' => 'UTC',
             'date_widget' => 'choice',
-            'years' => array(2010),
+            'years' => [2010],
             'time_widget' => 'choice',
             'input' => 'datetime_immutable',
-        ));
+        ]);
 
-        $form->submit(array(
-            'date' => array(
+        $form->submit([
+            'date' => [
                 'day' => '2',
                 'month' => '6',
                 'year' => '2010',
-            ),
-            'time' => array(
+            ],
+            'time' => [
                 'hour' => '3',
                 'minute' => '4',
-            ),
-        ));
+            ],
+        ]);
 
         $actual = $form->getData();
 
@@ -40,12 +40,12 @@ class DateTimeTypeImtblDateExtensionTest extends TypeTestCase
 
     public function testSubmitDifferentTimezonesDateTimeImmutable()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\DateTimeType', null, array(
+        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\DateTimeType', null, [
             'model_timezone' => 'America/New_York',
             'view_timezone' => 'Pacific/Tahiti',
             'widget' => 'single_text',
             'input' => 'datetime_immutable',
-        ));
+        ]);
 
         $form->submit('2010-06-02T03:04:00-10:00');
 
@@ -60,8 +60,8 @@ class DateTimeTypeImtblDateExtensionTest extends TypeTestCase
 
     protected function getExtensions()
     {
-        return array(
+        return [
             new DateTimeImmutableExtension(),
-        );
+        ];
     }
 }
