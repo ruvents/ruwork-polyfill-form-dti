@@ -21,14 +21,20 @@ composer require ruwork/polyfill-form-dti
 <?php
 
 use Ruwork\PolyfillFormDTI\DTIExtension;
+use Ruwork\PolyfillFormDTI\Guesser\DoctrineOrmDTIGuesser;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Forms;
 
+/** @var \Doctrine\Common\Persistence\ManagerRegistry $registry */
+
 $factory = Forms::createFormFactoryBuilder()
     ->addExtension(new DTIExtension())
+    // Optionally you can add a Doctrine ORM guesser
+    // to guess input=datetime_immutable for Doctrine 2.6 immutable date types. 
+    ->addTypeGuesser(new DoctrineOrmDTIGuesser($registry))
     ->getFormFactory();
 
 $form = $factory
