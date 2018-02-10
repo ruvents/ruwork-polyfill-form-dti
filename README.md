@@ -58,5 +58,5 @@ $form = $factory
 ## Testing
 
 ```shell
-vendor/bin/simple-phpunit --coverage-text
+vendor/bin/simple-phpunit
 ```
