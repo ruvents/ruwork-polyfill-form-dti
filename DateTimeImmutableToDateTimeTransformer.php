@@ -53,6 +53,6 @@ final class DateTimeImmutableToDateTimeTransformer implements DataTransformerInt
             throw new TransformationFailedException('Expected a \DateTime.');
         }
 
-        return \DateTimeImmutable::createFromMutable($value);
+        return \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $value->format(\DateTime::RFC3339));
     }
 }
