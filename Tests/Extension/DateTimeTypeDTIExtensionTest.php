@@ -1,12 +1,12 @@
 <?php
 
-namespace Ruwork\PolyfillFormDTI\Tests;
+namespace Ruwork\PolyfillFormDTI\Tests\Extension;
 
-use Ruwork\PolyfillFormDTI\DateTimeImmutableExtension;
+use Ruwork\PolyfillFormDTI\DTIExtension;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
-class DateTimeTypeImtblDateExtensionTest extends TypeTestCase
+class DateTimeTypeDTIExtensionTest extends TypeTestCase
 {
     public function testSubmitDateTimeImmutable()
     {
@@ -52,8 +52,8 @@ class DateTimeTypeImtblDateExtensionTest extends TypeTestCase
 
         $actual = $form->getData();
 
-        $expected = new \DateTimeImmutable('2010-06-02 03:04:00 Pacific/Tahiti');
-        $expected = $expected->setTimezone(new \DateTimeZone('America/New_York'));
+        $expected = (new \DateTimeImmutable('2010-06-02 03:04:00 Pacific/Tahiti'))
+            ->setTimezone(new \DateTimeZone('America/New_York'));
 
         $this->assertInstanceOf(\DateTimeImmutable::class, $actual);
         $this->assertEquals($expected, $actual);
@@ -62,7 +62,7 @@ class DateTimeTypeImtblDateExtensionTest extends TypeTestCase
     protected function getExtensions()
     {
         return [
-            new DateTimeImmutableExtension(),
+            new DTIExtension(),
         ];
     }
 }

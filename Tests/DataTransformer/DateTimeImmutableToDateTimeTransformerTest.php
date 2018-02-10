@@ -1,9 +1,9 @@
 <?php
 
-namespace Ruwork\PolyfillFormDTI\Tests;
+namespace Ruwork\PolyfillFormDTI\Tests\DataTransformer;
 
 use PHPUnit\Framework\TestCase;
-use Ruwork\PolyfillFormDTI\DateTimeImmutableToDateTimeTransformer;
+use Ruwork\PolyfillFormDTI\DataTransformer\DateTimeImmutableToDateTimeTransformer;
 
 class DateTimeImmutableToDateTimeTransformerTest extends TestCase
 {

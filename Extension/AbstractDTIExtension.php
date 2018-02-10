@@ -1,20 +1,14 @@
 <?php
 
-namespace Ruwork\PolyfillFormDTI;
+namespace Ruwork\PolyfillFormDTI\Extension;
 
+use Ruwork\PolyfillFormDTI\DataTransformer\DateTimeImmutableToDateTimeTransformer;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class DateTimeImmutableTypeExtension extends AbstractTypeExtension
+abstract class AbstractDTIExtension extends AbstractTypeExtension
 {
-    private $extendedType;
-
-    public function __construct($extendedType)
-    {
-        $this->extendedType = $extendedType;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -31,13 +25,5 @@ final class DateTimeImmutableTypeExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->addAllowedValues('input', ['datetime_immutable']);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getExtendedType()
-    {
-        return $this->extendedType;
     }
 }

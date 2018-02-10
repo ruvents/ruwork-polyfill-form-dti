@@ -1,6 +1,6 @@
 <?php
 
-namespace Ruwork\PolyfillFormDTI;
+namespace Ruwork\PolyfillFormDTI\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
@@ -53,10 +53,6 @@ final class DateTimeImmutableToDateTimeTransformer implements DataTransformerInt
             throw new TransformationFailedException('Expected a \DateTime.');
         }
 
-        if (PHP_VERSION < 50600) {
-            return \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $value->format(\DateTime::RFC3339));
-        }
-
-        return \DateTimeImmutable::createFromMutable($value);
+        return \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $value->format(\DateTime::RFC3339));
     }
 }

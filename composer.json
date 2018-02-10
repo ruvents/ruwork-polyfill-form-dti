@@ -1,6 +1,6 @@
 {
     "name": "ruwork/polyfill-form-dti",
-    "description": "Polyfill / Form / DateTimeImmutable",
+    "description": "Symfony Form polyfill adding input=datetime_immutable to date types.",
     "type": "symfony-bundle",
     "keywords": ["symfony", "form", "polyfill"],
     "license": "MIT",
