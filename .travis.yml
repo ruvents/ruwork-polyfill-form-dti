@@ -18,12 +18,15 @@ matrix:
         - php: 5.5
           env: DEPENDENCIES="symfony/lts:^3"
         - php: 7.0
+          env: PHP_CS=true
         - php: 7.1
+          env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-clover=coverage.xml"
 
 before_install:
     - if [[ $COVERAGE != true ]]; then phpenv config-rm xdebug.ini || true; fi
     - if ! [ -z "$STABILITY" ]; then composer config minimum-stability ${STABILITY}; fi;
     - if ! [ -v "$DEPENDENCIES" ]; then composer require --no-update ${DEPENDENCIES}; fi;
+    - if [[ $PHP_CS = true ]]; then composer require --no-update friendsofphp/php-cs-fixer; fi
 
 install:
     # To be removed when this issue will be resolved: https://github.com/composer/composer/issues/5355
@@ -34,3 +37,7 @@ install:
 script:
     - composer validate --strict --no-check-lock
     - vendor/bin/simple-phpunit $PHPUNIT_FLAGS
+    - if [[ $PHP_CS = true ]]; then vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no; fi
+
+after_success:
+    - if [[ $COVERAGE = true ]]; then bash <(curl -s https://codecov.io/bash); fi
