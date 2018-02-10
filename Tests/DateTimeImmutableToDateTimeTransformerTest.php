@@ -16,7 +16,7 @@ class DateTimeImmutableToDateTimeTransformerTest extends TestCase
         $expectedOutput = new \DateTime('2010-02-03 04:05:06 UTC');
         $actualOutput = $transformer->transform($input);
 
-        $this->assertInstanceOf('\DateTime', $actualOutput);
+        $this->assertInstanceOf(\DateTime::class, $actualOutput);
         $this->assertEquals($expectedOutput, $actualOutput);
     }
 
@@ -47,7 +47,7 @@ class DateTimeImmutableToDateTimeTransformerTest extends TestCase
         $expectedOutput = new \DateTimeImmutable('2010-02-03 04:05:06 UTC');
         $actualOutput = $transformer->reverseTransform($input);
 
-        $this->assertInstanceOf('\DateTimeImmutable', $actualOutput);
+        $this->assertInstanceOf(\DateTimeImmutable::class, $actualOutput);
         $this->assertEquals($expectedOutput, $actualOutput);
     }
 

@@ -3,6 +3,9 @@
 namespace Ruwork\PolyfillFormDTI;
 
 use Symfony\Component\Form\AbstractExtension;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 final class DateTimeImmutableExtension extends AbstractExtension
 {
@@ -12,9 +15,9 @@ final class DateTimeImmutableExtension extends AbstractExtension
     protected function loadTypeExtensions()
     {
         return [
-            new DateTimeImmutableTypeExtension('Symfony\Component\Form\Extension\Core\Type\DateTimeType'),
-            new DateTimeImmutableTypeExtension('Symfony\Component\Form\Extension\Core\Type\DateType'),
-            new DateTimeImmutableTypeExtension('Symfony\Component\Form\Extension\Core\Type\TimeType'),
+            new DateTimeImmutableTypeExtension(DateTimeType::class),
+            new DateTimeImmutableTypeExtension(DateType::class),
+            new DateTimeImmutableTypeExtension(TimeType::class),
         ];
     }
 }
