@@ -12,6 +12,7 @@ class DateTimeImmutableToDateTimeTransformerTest extends TestCase
         $transformer = new DateTimeImmutableToDateTimeTransformer();
 
         $input = new \DateTimeImmutable('2010-02-03 04:05:06 UTC');
+
         $expectedOutput = new \DateTime('2010-02-03 04:05:06 UTC');
         $actualOutput = $transformer->transform($input);
 
@@ -19,7 +20,7 @@ class DateTimeImmutableToDateTimeTransformerTest extends TestCase
         $this->assertEquals($expectedOutput, $actualOutput);
     }
 
-    public function testTransformEmpty()
+    public function testTransformNull()
     {
         $transformer = new DateTimeImmutableToDateTimeTransformer();
 
@@ -33,6 +34,7 @@ class DateTimeImmutableToDateTimeTransformerTest extends TestCase
     public function testTransformFail()
     {
         $transformer = new DateTimeImmutableToDateTimeTransformer();
+
         $transformer->transform(new \DateTime());
     }
 
@@ -41,6 +43,7 @@ class DateTimeImmutableToDateTimeTransformerTest extends TestCase
         $transformer = new DateTimeImmutableToDateTimeTransformer();
 
         $input = new \DateTime('2010-02-03 04:05:06 UTC');
+
         $expectedOutput = new \DateTimeImmutable('2010-02-03 04:05:06 UTC');
         $actualOutput = $transformer->reverseTransform($input);
 
@@ -48,7 +51,7 @@ class DateTimeImmutableToDateTimeTransformerTest extends TestCase
         $this->assertEquals($expectedOutput, $actualOutput);
     }
 
-    public function testReverseTransformEmpty()
+    public function testReverseTransformNull()
     {
         $transformer = new DateTimeImmutableToDateTimeTransformer();
 
@@ -62,6 +65,7 @@ class DateTimeImmutableToDateTimeTransformerTest extends TestCase
     public function testReverseTransformFail()
     {
         $transformer = new DateTimeImmutableToDateTimeTransformer();
+
         $transformer->reverseTransform(new \DateTimeImmutable());
     }
 }
