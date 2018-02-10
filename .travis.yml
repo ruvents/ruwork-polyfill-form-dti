@@ -14,12 +14,15 @@ matrix:
     fast_finish: true
     include:
         - php: 5.3
+          dist: precise
           env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
         - php: 5.3
+          dist: precise
           env: DEPENDENCIES="symfony/lts:^2"
         - php: 5.5
           env: DEPENDENCIES="symfony/lts:^3"
         - php: 7.0
+        - php: 7.1
 
 before_install:
     - if [[ $COVERAGE != true ]]; then phpenv config-rm xdebug.ini || true; fi
