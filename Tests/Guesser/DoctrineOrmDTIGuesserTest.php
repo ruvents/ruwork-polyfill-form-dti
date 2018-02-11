@@ -53,6 +53,12 @@ class DoctrineOrmDTIGuesserTest extends TestCase
         $registry = $this->createRegistry($manager);
         yield [$registry, null];
 
+        $metadata = $this->createMetadata('datetimetz_immutable');
+        $manager = $this->createManager($metadata);
+        $registry = $this->createRegistry($manager);
+        $guess = $this->createGuess(DateTimeType::class);
+        yield [$registry, $guess];
+
         $metadata = $this->createMetadata('datetime_immutable');
         $manager = $this->createManager($metadata);
         $registry = $this->createRegistry($manager);

@@ -42,6 +42,7 @@ final class DoctrineOrmDTIGuesser implements FormTypeGuesserInterface
         }
 
         switch ($metadata->getTypeOfField($property)) {
+            case 'datetimetz_immutable':
             case 'datetime_immutable':
                 return $this->createGuess(DateTimeType::class);
 
